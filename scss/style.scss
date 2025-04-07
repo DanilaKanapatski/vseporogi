@@ -28,6 +28,7 @@ a {
 button {
   border: none;
   background-color: transparent;
+  color: inherit;
 }
 
 $accent-color: #ab0000;
@@ -272,29 +273,206 @@ $second-color: #fff;
   }
 }
 
+//delivery
+
+.delivery {
+  margin-top: 71px;
+
+  &-title {
+    font-weight: 600;
+    font-size: 31px;
+    padding-left: 18px;
+    max-width: 271px;
+  }
+
+  &-list {
+    margin-top: 27px;
+    li {
+      position: relative;
+
+      &:first-child {
+        .delivery-subtitle {
+          padding-left: 50px; // 50px для заголовка
+        }
+
+        .delivery-desc {
+          margin-top: 32px;
+          padding-left: 23px; // 23px для описания
+        }
+      }
+
+      &:nth-child(2) {
+        margin-top: 39px;
+        .delivery-subtitle {
+          padding-left: 19px; // 50px для заголовка
+          max-width: 257px;
+        }
+
+        .delivery-desc {
+          margin-top: 5px;
+          max-width: 240px;
+          padding-left: 18px; // 23px для описания
+        }
+
+        .delivery-number {
+          right: 3px;
+          left: auto;
+          top: 2px;
+        }
+      }
+
+      &:nth-child(3) {
+        margin-top: 56px;
+        .delivery-subtitle {
+          padding-left: 87px; // 50px для заголовка
+        }
+
+        .delivery-desc {
+          margin-top: 6px;
+          max-width: 349px;
+          padding-left: 87px; // 23px для описания
+        }
+
+        .delivery-number {
+          top: -6px;
+        }
+      }
+
+      &:nth-child(4) {
+        margin-top: 86px;
+        .delivery-subtitle {
+          padding-left: 19px; // 50px для заголовка
+          max-width: 279px;
+        }
+
+        .delivery-desc {
+          margin-top: 6px;
+          max-width: 349px;
+          padding-left: 21.5px; // 23px для описания
+        }
+
+        .delivery-number {
+          top: -11px;
+          right: 4px;
+          left: auto;
+        }
+      }
+
+    }
+  }
+
+  &-number {
+    position: absolute;
+    font-weight: 400;
+    font-size: 85px;
+    color: #8c0000;
+    font-family: "Krona One", sans-serif;
+    left: 0;
+    top: -34px;
+  }
+
+  &-subtitle {
+    font-weight: 400;
+    font-size: 25px;
+  }
+
+  &-desc {
+    font-weight: 400;
+    font-size: 19px;
+  }
+}
+
+//reviews
+
+.reviews {
+  margin-top: 45px;
+
+  &-title {
+    margin: 0 auto;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    max-width: 200px;
+  }
+
+  &-img {
+    margin: 0 auto;
+  }
+}
+
 //projects
 
 .projects {
-  margin-top: 44px;
+  margin-top: 26px;
+  position: relative;
 
-  img {
-    width: 100%;
+  &-wrapper {
+    background-color: #363636;
   }
 
   &-title {
+    padding-left: 11px;
+    font-weight: 600;
+    font-size: 37px;
+    text-transform: uppercase;
+    color: #f6f4f4;
+    margin-bottom: 6px;
+  }
+
+  &-img {
+    position: absolute;
+    right: 0;
+    top: -84px;
+    width: 100%;
+  }
+
+  &-desc {
+    padding-left: 40px;
+    margin-top: 82px;
+    z-index: 100;
+    position: relative;
+    font-weight: 400;
+    font-size: 17px;
+    max-width: 331px;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-weight: 400;
+    font-size: 14px;
+    color: $second-color;
+    padding-left: 40px;
+    margin-top: 50px;
+    padding-bottom: 20px;
+
+    li {
+      position: relative;
+
+      img {
+        position: absolute;
+        right: 20%;
+        top: -40%;
+      }
+    }
+  }
+
+  &-subtitle {
+    margin-top: 44px;
     font-weight: 300;
     font-size: 20px;
     text-transform: uppercase;
     padding-left: 12px;
   }
 
-  &-wrapper {
-    margin-top: 20px;
+  &-example {
+    margin-top: 12px;
     background: #363636;
     padding: 6px 0 12px;
   }
 
-  &-desc {
+  &-subdesc {
     font-weight: 300;
     font-size: 22px;
     color: $second-color;
@@ -365,8 +543,12 @@ $second-color: #fff;
 
 .articles {
   margin-top: 76px;
-  padding-bottom: 45px;
+  padding: 0 10px 45px;
   background-color: $second-color;
+
+  img {
+    width: 100%;
+  }
 
   &-wrapper {
     @include flex-default;
