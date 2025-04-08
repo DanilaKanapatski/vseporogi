@@ -11,47 +11,90 @@
           rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Krona+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Krona+One&display=swap"
+          rel="stylesheet">
+    <script src="js/burger.js"></script>
+    <script src="js/counter.js"></script>
 </head>
 <body>
-<header>
-    <img src="images/header-logo.svg" alt="logo">
-    <a href="tel:88008888888">8 (800)888-88-88</a>
-    <p>Бесплатно со всех номеров РФ</p>
+<header class="header">
+    <!-- Бургер, который превращается в крест -->
+    <button class="burger-menu" aria-label="Открыть/закрыть меню">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+    </button>
+    <div class="header-wrapper">
+        <a href="index.html">
+            <img src="images/header-logo.svg" alt="logo">
+        </a>
+
+        <div class="header-info">
+            <a class="header-tel" href="tel:88008888888">8 (800)888-88-88</a>
+            <p class="header-desc">Бесплатно со всех номеров РФ</p>
+        </div>
+    </div>
+
+    <!-- Меню -->
+    <div class="fullscreen-menu">
+        <nav class="menu-content">
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Услуги</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
 <main>
 
-    <section class="main">
-        <h1 class="main-title">ПОРОГИ
-            АРКИ</h1>
+    <section class="main" id="main">
+        <h1 class="main-title">ПОРОГИ АРКИ</h1>
     </section>
-    <ul class="main-animation">
-        <li>Пороги</li>
-        <li>арки</li>
-        <li>ремкомплекты дверей</li>
-        <li>усилители</li>
-        <li>ремкомплекты днища</li>
-    </ul>
+    <div class="marquee-container">
+        <ul class="main-animation marquee">
+            <li>Пороги</li>
+            <li>арки</li>
+            <li>ремкомплекты дверей</li>
+            <li>усилители</li>
+            <li>ремкомплекты днища</li>
+        </ul>
+        <!-- Дублируем список для бесшовной анимации -->
+        <ul class="main-animation marquee" aria-hidden="true">
+            <li>Пороги</li>
+            <li>арки</li>
+            <li>ремкомплекты дверей</li>
+            <li>усилители</li>
+            <li>ремкомплекты днища</li>
+        </ul>
+    </div>
 
-    <section class="solution">
+    <section class="solution" id="solution">
         <h2 class="solution-title">
-            <span>Комплексное решение</span>
+            <span>Комплексное решение</span><br>
             для проблем с кузовом </h2>
-        <p class="solution-desc">Ремкомплекты для ремонта кузовных элементов, короба порога, крыльев, внутренних частей
-        </p>
-        <button class="solution-form">
-
+        <p class="solution-desc">Ремкомплекты для ремонта кузовных элементов, короба порога, крыльев, внутренних частей</p>
+        <button class="solution-form" id="form-1">
                 <span class="solution-form__icon-wrapper">
                     <img src="images/tel.svg" alt="tel">
                 </span>
             Оставить заявку
         </button>
-        <img src="images/solution-1.png" alt="">
+        <img class="solution-img" src="images/solution-1.png" alt="back-car">
     </section>
 
-    <section class="promo">
+    <section class="promo" id="promo">
         <h2 class="promo-title">АКЦИЯ</h2>
+        <div class="countdown-container">
+            <div class="countdown">
+                <span class="days">03</span>:
+                <span class="hours">00</span>:
+                <span class="minutes">00</span>:
+                <span class="seconds">00</span>
+            </div>
+        </div>
         <div class="promo-wrapper">
             <div>
                 <p class="promo-price">порог <span>1750 ₽</span></p>
@@ -64,17 +107,21 @@
         </div>
     </section>
 
-    <section class="connection">
+    <section class="connection" id="connection">
         <p class="connection-desc">подберем необходимые детали на вашу модель</p>
         <ul class="connection-links">
             <li>
-                <a href="https://t.me/VsePorogispb"><img src="images/tg.svg" alt="telegram">Telegram</a>
+                <a href="https://t.me/VsePorogispb" target="_blank">
+                    <img src="images/tg.svg" alt="telegram">Telegram</a>
             </li>
             <li>
-                <a href="https://wa.me/88008888888"><img src="images/wa.svg" alt="whatsapp">WhatsApp</a>
+                <a href="https://wa.me/88008888888">
+                    <img src="images/wa.svg" alt="whatsapp">
+                    WhatsApp
+                </a>
             </li>
             <li>
-                <button>
+                <button class="connection-btn" id="form-2">
                         <span>
                             <img src="images/tel-1.svg" alt="tel">
                         </span>
@@ -85,15 +132,16 @@
         <p class="connection-choose">Выберете удобный способ связи</p>
     </section>
 
-    <section class="production">
-        <img src="images/production-1.png" alt="">
+    <section class="production" id="production">
+        <img src="images/production-1.png" alt="production">
         <p class="production-desc"><span>Ведущий производитель</span> кузовных
             ремкомплектов с 2015 года.
             <span>Собственное производство</span> 1200 кв м, высококлассное оборудование,
             <span>быстрая доставка</span> по РФ</p>
     </section>
 
-    <section class="choose">
+    <section class="choose" id="choose">
+        <img class="choose-img" src="images/choose-1.png" alt="choose-back">
         <p class="choose-desc">Выберите из списка свой автомобиль
             и отправьте заявку </p>
         <div class="choose-wrapper">
@@ -105,6 +153,170 @@
     <section class="examples">
         <img src="images/examples-1.png" alt="example">
         <p class="examples-desc">Пример восстановления авто кузовными ремкомплектами</p>
+    </section>
+    <section class="car">
+        <img src="images/car-2.png" alt="">
+    </section>
+    <section class="masters">
+        <img src="images/masters-1.png" alt="">
+        <p class="masters-choose">ВЫБОР МАСТЕРОВ</p>
+        <img src="images/masters-2.png" alt="">
+    </section>
+    <section class="ticket">
+        <ul class="ticket-list">
+            <li>
+                <img src="images/ticket-1.png" alt="">
+                <p class="ticket-desc">Полный порог
+                </p>
+                <div class="price-wrapper">
+                    <span class="ticket-price">1750 р </span>
+                    <span class="ticket-oldprice">2350 р</span>
+                </div>
+                <button class="ticket-btn">
+                    <span><img src="images/ticket-tel.svg" alt=""></span>
+                </button>
+            </li>
+            <li>
+                <img src="images/ticket-2.png" alt="">
+                <p class="ticket-desc">Задняя арка
+                </p>
+                <div class="price-wrapper">
+                    <span class="ticket-price">1950 р </span>
+                    <span class="ticket-oldprice">2350 р</span>
+                </div>
+                <button class="ticket-btn">
+                    <span><img src="images/ticket-tel.svg" alt=""></span>
+                </button>
+            </li>
+            <li>
+                <img src="images/ticket-3.png" alt="">
+                <p class="ticket-desc">Внутренняя составная
+                    арка
+                </p>
+                <div class="price-wrapper">
+                    <span class="ticket-price">3900 р  </span>
+                    <span class="ticket-oldprice">4650 р</span>
+                </div>
+                <button class="ticket-btn">
+                    <span><img src="images/ticket-tel.svg" alt=""></span>
+                </button>
+            </li>
+            <li>
+                <img src="images/ticket-4.png" alt="">
+                <p class="ticket-desc">Внутренняя универсальная
+                    арка</p>
+                <div class="price-wrapper">
+                    <span class="ticket-price">1950 р  </span>
+                    <span class="ticket-oldprice">2450 р</span>
+                </div>
+                <button class="ticket-btn">
+                    <span><img src="images/ticket-tel.svg" alt=""></span>
+                </button>
+            </li>
+            <li>
+                <img src="images/ticket-5.png" alt="">
+                <p class="ticket-desc">Ремкомплекты (пенки)
+                    дверей и багажника</p>
+                <div class="price-wrapper">
+                    <span class="ticket-price">1950 р  </span>
+                    <span class="ticket-oldprice">2400 р</span>
+                </div>
+                <button class="ticket-btn">
+                    <span><img src="images/ticket-tel.svg" alt=""></span>
+                </button>
+            </li>
+            <li>
+                <img src="images/ticket-6.png" alt="">
+                <p class="ticket-desc">Ремкомплект пола</p>
+                <div class="price-wrapper">
+                    <span class="ticket-price">1750 р  </span>
+                    <span class="ticket-oldprice">2400 р</span>
+                </div>
+                <button class="ticket-btn">
+                    <span><img src="images/ticket-tel.svg" alt=""></span>
+                </button>
+            </li>
+        </ul>
+    </section>
+    <section class="cards">
+        <ul class="cards-list">
+            <li>КОМПЛЕКТОМ ВЫГОДНЕЕ</li>
+            <li>КОМПЛЕКТОМ ВЫГОДНЕЕ</li>
+            <li>КОМПЛЕКТОМ ВЫГОДНЕЕ</li>
+        </ul>
+        <div class="cards-images">
+            <img class="cards-vector" src="images/cards-vector.svg" alt="">
+            <img class="cards-images__car" src="images/cards-1.png" alt="">
+            <div class="cards-images__block">
+                <div>
+                    <p>Пороги+арки комплект</p>
+                    <img src="images/cards-2.png" alt="">
+                </div>
+                <div>
+                    <p>Комплект задних арок</p>
+                    <img src="images/cards-3.png" alt="">
+                </div>
+            </div>
+            <button class="cards-btn">
+                <img src="images/cards-tel.svg" alt="">
+                Оставить заявку
+            </button>
+        </div>
+    </section>
+    <section class="about">
+        <img class="about-back" src="images/info-back.svg" alt="">
+        <img class="about-vektor" src="images/vektor.svg" alt="">
+        <ul class="about-list">
+            <li>
+                <p>Толщина деталей: 0,8-1,5 мм. Соответствует толщине кузова</p>
+                <img class="about-circle" src="images/circle.svg" alt="">
+            </li>
+            <li>
+                <p>5000+ лекал на разные модели</p>
+                <img class="about-circle" src="images/circle.svg" alt="">
+            </li>
+            <li>
+                <p>Замеры с реальных автомобилей</p>
+                <div>
+                    <img class="about-circle" src="images/circle.svg" alt="">
+                    <span>3D</span>
+                </div>
+            </li>
+            <li>
+                <p>Легкий монтаж деталей
+                    Получить чек-лист
+                    <span>Скачать в PDF</span>
+                </p>
+                <div>
+                    <img class="about-circle" src="images/circle.svg" alt="">
+                    <img class="about-pdf" src="images/pdf.svg" alt="">
+                </div>
+            </li>
+            <li>
+                <p>
+                    Нам доверяют кузовщики
+                    Найти мастера в своем городе: перейти -
+                    <span>Ссылка на кузовщиков ВК</span>
+                </p>
+                <img class="about-circle" src="images/circle.svg" alt="">
+            </li>
+        </ul>
+        <div class="info">
+            <img class="info-bus" src="images/bus.svg" alt="">
+            <img class="info-cdek" src="images/cdek.svg" alt="">
+            <img class="info-map" src="images/map.svg" alt="">
+            <p class="info-delivery">Доставка по РФ<br>
+                <span>на спец условиях</span>
+            </p>
+            <div class="info-wrapper">
+                <div>По СПБ<br>
+                    в день заказа
+                </div>
+                <div>По РФ<br>
+                    от 1 дня
+                </div>
+            </div>
+            <p class="info-text">Так же отправляем “ПЭК”, “КИТ”, “Деловые линии”</p></div>
     </section>
     <section class="delivery">
         <h2 class="delivery-title">Доставка и оплата заказа</h2>

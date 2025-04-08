@@ -24,17 +24,136 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 button {
   border: none;
   background-color: transparent;
   color: inherit;
+  cursor: pointer;
+}
+
+.header {
+  padding: 13px 4px 7px 13px;
+  display: flex;
+  justify-content: space-between;
+}
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.header-tel {
+  font-weight: 400;
+  font-size: 15px;
+}
+.header-desc {
+  font-weight: 400;
+  font-size: 8px;
+  text-align: right;
+}
+
+/* Бургер-кнопка */
+.burger-menu {
+  width: 50px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  z-index: 1001; /* Чтобы был поверх меню */
+}
+
+.burger-line {
+  display: block;
+  width: 100%;
+  height: 7px;
+  background: red;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.burger-line:nth-child(1) {
+  top: 0;
+}
+
+.burger-line:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.burger-line:nth-child(3) {
+  bottom: 0;
+}
+
+/* Состояние "крестик" */
+.burger-menu.active .burger-line:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.burger-menu.active .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active .burger-line:nth-child(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+
+/* Полноэкранное меню */
+.fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #323232;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.fullscreen-menu.active {
+  display: flex;
+}
+
+/* Пункты меню */
+.menu-content ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.menu-content li {
+  margin: 20px 0;
+}
+
+.menu-content a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+/* Блокировка основного контента */
+body.menu-open {
+  overflow: hidden;
 }
 
 .main {
-  background-image: url("images/main-1.png");
-  padding: 74px 0 28px;
+  background-image: url("../images/main-1.png");
+  background-size: cover;
+  padding: 74px 0 28px 19px;
 }
 .main-title {
   font-weight: 700;
@@ -43,16 +162,47 @@ button {
   max-width: 239px;
 }
 
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  border-top: 0.2px solid #000;
+  border-bottom: 0.2px solid #000;
+}
+
 .main-animation {
   font-weight: 400;
   font-size: 11px;
   text-transform: uppercase;
   color: #525252;
-  gap: 10px;
+  padding: 5px 0 7px;
   display: flex;
-  align-items: center;
+  gap: 10px;
+  animation: scroll 20s linear infinite;
 }
 
+/* Анимация движения */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.solution {
+  padding: 31px 0 54px 16px;
+  position: relative;
+  overflow: hidden;
+}
+.solution-img {
+  position: absolute;
+  mix-blend-mode: exclusion;
+  top: -26px;
+  right: 0;
+}
 .solution-title {
   max-width: 276.1px;
   font-weight: 700;
@@ -96,8 +246,8 @@ button {
   align-items: center;
 }
 
-.promo {
-  margin-top: 47px;
+.promo img {
+  width: 100%;
 }
 .promo-title {
   font-weight: 300;
@@ -111,6 +261,9 @@ button {
   justify-content: center;
   align-items: center;
 }
+.promo-wrapper div {
+  width: 100%;
+}
 .promo-price {
   font-weight: 700;
   font-size: 22px;
@@ -119,6 +272,30 @@ button {
 }
 .promo-price span {
   color: #ab0000;
+}
+
+.countdown-container {
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.countdown {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #323232;
+  display: inline-flex;
+  gap: 5px;
+}
+
+.countdown span {
+  background: #303030;
+  padding: 5px 10px;
+  border-radius: 5px;
+  min-width: 2ch;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
 }
 
 .connection {
@@ -137,8 +314,9 @@ button {
   font-weight: 300;
   font-size: 12px;
   text-align: center;
-  display: flex;
   align-items: center;
+  display: flex;
+  justify-content: space-around;
 }
 .connection-choose {
   margin-top: 23px;
@@ -146,6 +324,23 @@ button {
   font-size: 12px;
   text-transform: uppercase;
   text-align: center;
+}
+.connection-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.connection-btn span {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  background: #ab0000;
 }
 
 .production {
@@ -168,11 +363,22 @@ button {
 .choose {
   padding: 24px 10px 12px;
   margin-top: 27px;
-  background-image: url("../images/choose-1.png");
-  border: 0.92px solid #000;
-  border-radius: 6px;
+  border-top: 0.92px solid #000;
+  border-bottom: 0.92px solid #000;
+  background: #2d2d2d;
+  position: relative;
+  z-index: 10;
+}
+.choose-img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  height: 100%;
 }
 .choose-desc {
+  position: relative;
+  z-index: 10;
   font-weight: 700;
   font-size: 15px;
   text-transform: uppercase;
@@ -182,9 +388,12 @@ button {
   color: #fff;
 }
 .choose-wrapper {
+  position: relative;
+  z-index: 10;
   margin-top: 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 18px;
 }
 .choose-info {
@@ -198,6 +407,8 @@ button {
   background: #fff;
 }
 .choose-btn {
+  position: relative;
+  z-index: 10;
   border-radius: 1px;
   width: 162px;
   height: 34px;
@@ -222,6 +433,327 @@ button {
   text-align: center;
   max-width: 293.65px;
   margin: 8px auto 0;
+}
+
+.masters {
+  background: #fff;
+  padding-bottom: 37px;
+}
+.masters img {
+  width: 100%;
+}
+.masters-choose {
+  font-weight: 600;
+  font-size: 21px;
+  text-align: center;
+  color: #fff;
+  padding: 14px 0 17px;
+  background: #323232;
+}
+
+.ticket {
+  margin-top: 12px;
+}
+.ticket-desc {
+  margin-top: 12px;
+  font-weight: 400;
+  font-size: 10px;
+  text-align: center;
+}
+.ticket-price {
+  font-weight: 400;
+  font-size: 10px;
+  text-align: center;
+}
+.ticket-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 27px;
+}
+.ticket-list li {
+  max-width: 145px;
+}
+.ticket-oldprice {
+  font-weight: 400;
+  font-size: 10px;
+  text-align: center;
+  color: #aaa;
+  text-decoration: line-through;
+}
+.ticket-btn {
+  border-radius: 5px;
+  margin: 9px auto 0;
+  width: 119px;
+  height: 23px;
+  background: #525151;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 4px 4px 0 rgba(0, 0, 0, 0.14), 0 9px 6px 0 rgba(0, 0, 0, 0.08), 0 16px 7px 0 rgba(0, 0, 0, 0.02), 0 26px 7px 0 rgba(0, 0, 0, 0);
+}
+.ticket-btn span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ab0000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ticket .price-wrapper {
+  display: flex;
+  margin: 11px auto 0;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cards {
+  margin-top: 48px;
+}
+.cards-btn {
+  border-radius: 26px;
+  width: 204px;
+  height: 34px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.35);
+  background: #ab0000;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  position: relative;
+  z-index: 230;
+  color: #fff;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-left: 19px;
+  margin: 14px auto 0;
+}
+.cards-list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+.cards-list li {
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
+.cards-list li:nth-child(2) {
+  color: #ab0000;
+}
+.cards-vector {
+  position: absolute;
+  bottom: 6px;
+  width: 100%;
+  left: 0;
+  z-index: 1;
+}
+.cards-images {
+  padding-bottom: 15px;
+  position: relative;
+  z-index: 230;
+  margin-top: 32px;
+  background: #faf8f8;
+}
+.cards-images .cards-images__car {
+  mix-blend-mode: exclusion;
+  position: relative;
+  z-index: 230;
+  width: 100%;
+}
+.cards-images .cards-images__block {
+  position: relative;
+  z-index: 230;
+  display: flex;
+  justify-content: space-between;
+}
+.cards-images .cards-images__block p {
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  color: #232323;
+  margin-bottom: 2px;
+}
+
+.about {
+  margin-top: 38px;
+  background-color: #303030;
+  position: relative;
+}
+.about-back {
+  position: absolute;
+  top: 7px;
+  width: 100%;
+}
+.about-vektor {
+  position: absolute;
+  right: 0;
+}
+.about-circle {
+  position: absolute;
+}
+.about-list {
+  font-weight: 400;
+  font-size: 15px;
+  color: #fff;
+  z-index: 100;
+}
+.about-list li {
+  position: relative;
+}
+.about-list li:first-child {
+  padding-top: 19px;
+  padding-left: 87px;
+}
+.about-list li:first-child .about-circle {
+  top: 0;
+  left: 0;
+}
+.about-list li:nth-child(2) {
+  margin-top: 41px;
+  padding-left: 18px;
+}
+.about-list li:nth-child(2) .about-circle {
+  right: 20px;
+  top: -20px;
+}
+.about-list li:nth-child(3) {
+  padding-left: 87px;
+  margin-top: 45px;
+  max-width: 250px;
+}
+.about-list li:nth-child(3) div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 82px; /* Занимает всю ширину контейнера */
+  height: 50px; /* Занимает всю высоту контейнера */
+  left: 0;
+  top: 0;
+}
+.about-list li:nth-child(3) span {
+  font-weight: 800;
+  font-size: 21px;
+  color: #4f0c0c;
+  position: relative; /* Позволяет z-index работать */
+  z-index: 1; /* Помещает текст над кругом */
+}
+.about-list li:nth-child(3) .about-circle {
+  left: 0;
+  top: -10px;
+}
+.about-list li:nth-child(4) {
+  padding-left: 23px;
+  margin-top: 42px;
+}
+.about-list li:nth-child(4) p {
+  max-width: 250px;
+}
+.about-list li:nth-child(4) p span {
+  font-weight: 400;
+  font-size: 12px;
+  color: #f00;
+}
+.about-list li:nth-child(4) div {
+  position: absolute;
+  width: 82px; /* Занимает всю ширину контейнера */
+  height: 50px; /* Занимает всю высоту контейнера */
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+}
+.about-list li:nth-child(4) div .about-pdf {
+  position: absolute;
+  left: 0;
+  top: -10px;
+}
+.about-list li:nth-child(4) .about-circle {
+  right: 20px;
+  top: -15px;
+}
+.about-list li:nth-child(5) {
+  padding-left: 85px;
+  margin-top: 30px;
+  max-width: 324px;
+  padding-bottom: 9px;
+}
+.about-list li:nth-child(5) p span {
+  font-weight: 400;
+  font-size: 12px;
+  color: #f00;
+}
+.about-list li:nth-child(5) .about-circle {
+  left: 0;
+  top: -7px;
+}
+
+.info {
+  background-color: #303030;
+  position: relative;
+  padding-top: 85px;
+  padding-bottom: 82px;
+}
+.info-map {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+.info-bus {
+  position: absolute;
+  bottom: -8px;
+  right: 14px;
+}
+.info-cdek {
+  top: 39px;
+  right: 30px;
+  position: absolute;
+}
+.info-delivery {
+  font-weight: 600;
+  font-size: 20px;
+  padding-left: 19px;
+  color: #fff;
+}
+.info-delivery span {
+  font-weight: 400;
+  font-size: 17px;
+}
+.info-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding-left: 20px;
+  margin-top: 27px;
+}
+.info-wrapper div {
+  border-radius: 2px;
+  width: 146px;
+  height: 43px;
+  background: #fff;
+  font-weight: 400;
+  font-size: 17px;
+  text-align: center;
+  color: #000;
+}
+.info-wrapper div:nth-child(2) {
+  background: #ab0000;
+  color: #fff;
+}
+.info-text {
+  margin-top: 27px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+  max-width: 292px;
+  padding-left: 20px;
 }
 
 .delivery {
