@@ -495,10 +495,36 @@ body.menu-open {
   }
 }
 
+//car
+
+.car {
+  position: relative;
+  margin-top: 26px;
+  background-image: url("../images/car-2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &-main {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &-info {
+    p {
+      font-weight: 300;
+      font-size: 12px;
+      color: #090000;
+      max-width: 156px;
+    }
+  }
+}
+
 //masters
 
 .masters {
   background: $second-color;
+  margin-top: 64px;
   padding-bottom: 37px;
 
   img {
@@ -583,6 +609,41 @@ body.menu-open {
 
 //cards
 
+.cards-list {
+  @include flex-default;
+  gap: 10px;
+  overflow: hidden;
+  width: 100%;
+  list-style: none;
+
+  // Дублируем элементы для бесшовной анимации
+  &-container {
+    display: flex;
+    gap: 10px;
+    animation: scroll 10s linear infinite;
+  }
+
+  li {
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    flex-shrink: 0;
+
+    &:nth-child(2) {
+      color: $accent-color;
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .cards {
   margin-top: 48px;
 
@@ -603,22 +664,6 @@ body.menu-open {
     align-items: center;
     padding-left: 19px;
     margin: 14px auto 0;
-  }
-
-  &-list {
-    @include flex-default;
-    gap: 10px;
-    overflow: hidden;
-
-    li {
-      font-weight: 600;
-      font-size: 14px;
-      text-align: center;
-
-      &:nth-child(2) {
-        color: $accent-color;
-      }
-    }
   }
 
   &-vector {
@@ -661,6 +706,147 @@ body.menu-open {
 }
 
 //about
+
+@media screen and (min-width:420px) {
+  .about {
+    margin-top: 38px;
+    background-color: #303030;
+    position: relative;
+
+    &-back {
+      position: absolute;
+      top: 7px;
+      width: 100%;
+    }
+
+    &-vektor {
+      position: absolute;
+      //width: 100%;
+      right: 0;
+    }
+
+    &-circle {
+      position: absolute;
+    }
+
+    &-list {
+      font-weight: 400;
+      font-size: 15px;
+      color: $second-color;
+      z-index: 100;
+
+      li {
+        position: relative;
+      }
+
+      li:first-child {
+        padding-top: 19px;
+        padding-left: 87px;
+
+        .about-circle {
+          top: 0;
+          left: 0;
+        }
+      }
+
+      li:nth-child(2) {
+        margin-top: 41px;
+        padding-left: 18px;
+
+        .about-circle {
+          right: 20px;
+          top: -20px;
+        }
+      }
+
+      li:nth-child(3) {
+        padding-left: 87px;
+        margin-top: 45px;
+        max-width: 250px;
+
+        div {
+          @include flex-center;
+          position: absolute;
+          width: 82px; /* Занимает всю ширину контейнера */
+          height: 50px; /* Занимает всю высоту контейнера */
+          left: 0;
+          top: 0;
+        }
+
+        span {
+          font-weight: 800;
+          font-size: 21px;
+          color: #4f0c0c;
+          position: relative; /* Позволяет z-index работать */
+          z-index: 1; /* Помещает текст над кругом */
+        }
+
+        .about-circle {
+          left: 0;
+          top: -10px;
+        }
+      }
+
+      li:nth-child(4) {
+        padding-left: 23px;
+        margin-top: 42px;
+
+        p {
+          max-width: 250px;
+
+          span {
+            font-weight: 400;
+            font-size: 12px;
+            color: #f00;
+          }
+        }
+
+        div {
+          position: absolute;
+          width: 82px; /* Занимает всю ширину контейнера */
+          height: 50px; /* Занимает всю высоту контейнера */
+          right: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          top: 0;
+
+          .about-pdf {
+            position: absolute;
+            left: 0;
+            top: -10px;
+          }
+        }
+
+        .about-circle {
+          right: 20px;
+          top: -15px;
+        }
+      }
+
+      li:nth-child(5) {
+        padding-left: 85px;
+        margin-top: 30px;
+        max-width: 324px;
+        padding-bottom: 9px;
+
+        p {
+          span {
+            font-weight: 400;
+            font-size: 12px;
+            color: #f00;
+          }
+        }
+
+        .about-circle {
+          left: 0;
+          top: -7px;
+        }
+      }
+    }
+  }
+
+}
 
 .about {
   margin-top: 38px;
@@ -1071,6 +1257,10 @@ body.menu-open {
     margin-top: 12px;
     background: #363636;
     padding: 6px 0 12px;
+
+    img {
+      width: 100%;
+    }
   }
 
   &-subdesc {

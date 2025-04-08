@@ -435,8 +435,28 @@ body.menu-open {
   margin: 8px auto 0;
 }
 
+.car {
+  position: relative;
+  margin-top: 26px;
+  background-image: url("../images/car-2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.car-main {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.car-info p {
+  font-weight: 300;
+  font-size: 12px;
+  color: #090000;
+  max-width: 156px;
+}
+
 .masters {
   background: #fff;
+  margin-top: 64px;
   padding-bottom: 37px;
 }
 .masters img {
@@ -511,6 +531,37 @@ body.menu-open {
   gap: 10px;
 }
 
+.cards-list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  width: 100%;
+  list-style: none;
+}
+.cards-list-container {
+  display: flex;
+  gap: 10px;
+  animation: scroll 10s linear infinite;
+}
+.cards-list li {
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.cards-list li:nth-child(2) {
+  color: #ab0000;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 .cards {
   margin-top: 48px;
 }
@@ -531,20 +582,6 @@ body.menu-open {
   align-items: center;
   padding-left: 19px;
   margin: 14px auto 0;
-}
-.cards-list {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  overflow: hidden;
-}
-.cards-list li {
-  font-weight: 600;
-  font-size: 14px;
-  text-align: center;
-}
-.cards-list li:nth-child(2) {
-  color: #ab0000;
 }
 .cards-vector {
   position: absolute;
@@ -580,6 +617,122 @@ body.menu-open {
   margin-bottom: 2px;
 }
 
+@media screen and (min-width: 420px) {
+  .about {
+    margin-top: 38px;
+    background-color: #303030;
+    position: relative;
+  }
+  .about-back {
+    position: absolute;
+    top: 7px;
+    width: 100%;
+  }
+  .about-vektor {
+    position: absolute;
+    right: 0;
+  }
+  .about-circle {
+    position: absolute;
+  }
+  .about-list {
+    font-weight: 400;
+    font-size: 15px;
+    color: #fff;
+    z-index: 100;
+  }
+  .about-list li {
+    position: relative;
+  }
+  .about-list li:first-child {
+    padding-top: 19px;
+    padding-left: 87px;
+  }
+  .about-list li:first-child .about-circle {
+    top: 0;
+    left: 0;
+  }
+  .about-list li:nth-child(2) {
+    margin-top: 41px;
+    padding-left: 18px;
+  }
+  .about-list li:nth-child(2) .about-circle {
+    right: 20px;
+    top: -20px;
+  }
+  .about-list li:nth-child(3) {
+    padding-left: 87px;
+    margin-top: 45px;
+    max-width: 250px;
+  }
+  .about-list li:nth-child(3) div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 82px; /* Занимает всю ширину контейнера */
+    height: 50px; /* Занимает всю высоту контейнера */
+    left: 0;
+    top: 0;
+  }
+  .about-list li:nth-child(3) span {
+    font-weight: 800;
+    font-size: 21px;
+    color: #4f0c0c;
+    position: relative; /* Позволяет z-index работать */
+    z-index: 1; /* Помещает текст над кругом */
+  }
+  .about-list li:nth-child(3) .about-circle {
+    left: 0;
+    top: -10px;
+  }
+  .about-list li:nth-child(4) {
+    padding-left: 23px;
+    margin-top: 42px;
+  }
+  .about-list li:nth-child(4) p {
+    max-width: 250px;
+  }
+  .about-list li:nth-child(4) p span {
+    font-weight: 400;
+    font-size: 12px;
+    color: #f00;
+  }
+  .about-list li:nth-child(4) div {
+    position: absolute;
+    width: 82px; /* Занимает всю ширину контейнера */
+    height: 50px; /* Занимает всю высоту контейнера */
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+  }
+  .about-list li:nth-child(4) div .about-pdf {
+    position: absolute;
+    left: 0;
+    top: -10px;
+  }
+  .about-list li:nth-child(4) .about-circle {
+    right: 20px;
+    top: -15px;
+  }
+  .about-list li:nth-child(5) {
+    padding-left: 85px;
+    margin-top: 30px;
+    max-width: 324px;
+    padding-bottom: 9px;
+  }
+  .about-list li:nth-child(5) p span {
+    font-weight: 400;
+    font-size: 12px;
+    color: #f00;
+  }
+  .about-list li:nth-child(5) .about-circle {
+    left: 0;
+    top: -7px;
+  }
+}
 .about {
   margin-top: 38px;
   background-color: #303030;
@@ -918,6 +1071,9 @@ body.menu-open {
   margin-top: 12px;
   background: #363636;
   padding: 6px 0 12px;
+}
+.projects-example img {
+  width: 100%;
 }
 .projects-subdesc {
   font-weight: 300;
