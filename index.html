@@ -15,6 +15,7 @@
           rel="stylesheet">
     <script src="js/burger.js"></script>
     <script src="js/counter.js"></script>
+    <script src="js/form1.js"></script>
 </head>
 <body>
 <header class="header">
@@ -75,13 +76,32 @@
         <h2 class="solution-title">
             <span>Комплексное решение</span><br>
             для проблем с кузовом </h2>
-        <p class="solution-desc">Ремкомплекты для ремонта кузовных элементов, короба порога, крыльев, внутренних частей</p>
+        <p class="solution-desc">Ремкомплекты для ремонта кузовных элементов, короба порога, крыльев, внутренних
+            частей</p>
         <button class="solution-form" id="form-1">
-                <span class="solution-form__icon-wrapper">
-                    <img src="images/tel.svg" alt="tel">
-                </span>
+        <span class="solution-form__icon-wrapper">
+            <img src="images/tel.svg" alt="tel">
+        </span>
             Оставить заявку
         </button>
+
+        <div class="popup-overlay" id="popup">
+            <div class="popup-content">
+                <button class="close-popup" id="close-popup">&times;</button>
+                <h2 class="popup-title">Оставить заявку</h2>
+                <form id="application-form">
+                    <div class="form-group">
+                        <input type="tel" placeholder="Номер телефона" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Отправить</button>
+                    <div class="privacy-policy">
+                        <input type="checkbox" id="privacy-check" required>
+                        <label for="privacy-check">Я соглашаюсь с <a href="/privacy-policy" target="_blank">Политикой
+                            конфиденциальности</a> и даю согласие на обработку персональных данных</label>
+                    </div>
+                </form>
+            </div>
+        </div>
         <img class="solution-img" src="images/solution-1.png" alt="back-car">
     </section>
 
@@ -155,7 +175,7 @@
         <p class="examples-desc">Пример восстановления авто кузовными ремкомплектами</p>
     </section>
     <section class="car" id="car">
-<!--        <img src="images/car-2.png" alt="">-->
+        <!--        <img src="images/car-2.png" alt="">-->
         <img src="images/car-1.png" class="car-main" alt="">
         <div class="car-info">
             <img src="images/car-3.png" alt="">
