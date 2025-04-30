@@ -7,15 +7,11 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-          rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Krona+One&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <script src="js/burger.js"></script>
     <script src="js/counter.js"></script>
     <script src="js/form1.js"></script>
+    <script src="js/example-slider.js"></script>
 </head>
 <body>
 <header class="header">
@@ -25,16 +21,17 @@
         <span class="burger-line"></span>
         <span class="burger-line"></span>
     </button>
-    <div class="header-wrapper">
-        <a href="index.html">
-            <img src="images/header-logo.svg" alt="logo">
-        </a>
+<!--    <div class="header-wrapper">-->
 
         <div class="header-info">
             <a class="header-tel" href="tel:88008888888">8 (800)888-88-88</a>
             <p class="header-desc">Бесплатно со всех номеров РФ</p>
         </div>
-    </div>
+        <a href="index.html">
+            <img src="images/header-logo.svg" alt="logo">
+        </a>
+
+<!--    </div>-->
 
     <!-- Меню -->
     <div class="fullscreen-menu">
@@ -52,6 +49,7 @@
 <main>
 
     <section class="main" id="main">
+        <video src="video/main.mov" autoplay loop muted playsinline></video>
         <h1 class="main-title">ПОРОГИ АРКИ</h1>
     </section>
     <div class="marquee-container">
@@ -109,59 +107,95 @@
         <h2 class="promo-title">АКЦИЯ</h2>
         <div class="countdown-container">
             <div class="countdown">
-                <span class="days">03</span>:
-                <span class="hours">00</span>:
-                <span class="minutes">00</span>:
-                <span class="seconds">00</span>
+                <div class="days">
+                    <span class="digit">0</span>
+                    <span class="digit">3</span>
+                </div>:
+                <div class="hours">
+                    <span class="digit">0</span>
+                    <span class="digit">0</span>
+                </div>:
+                <div class="minutes">
+                    <span class="digit">0</span>
+                    <span class="digit">0</span>
+                </div>:
+                <div class="seconds">
+                    <span class="digit">0</span>
+                    <span class="digit">0</span>
+                </div>
             </div>
         </div>
         <div class="promo-wrapper">
             <div>
                 <p class="promo-price">порог <span>1750 ₽</span></p>
+                <span class="promo-oldPrice">2350 ₽</span>
                 <img src="images/promo-1.png" alt="first promotion">
             </div>
             <div>
                 <p class="promo-price">арка <span>1950 ₽</span></p>
+                <span class="promo-oldPrice">2700 ₽</span>
                 <img src="images/promo-2.png" alt="second promotion">
             </div>
         </div>
     </section>
 
     <section class="connection" id="connection">
+        <img class="connection-img" src="images/connection-1.svg" alt="">
         <p class="connection-desc">подберем необходимые детали на вашу модель</p>
-        <ul class="connection-links">
+
+        <ul class="connection-list">
             <li>
-                <a href="https://t.me/VsePorogispb" target="_blank">
-                    <img src="images/tg.svg" alt="telegram">Telegram</a>
+                <p>выберите удобный способ связи</p>
+                <a href=""><img src="images/wa.svg" alt=""></a>
             </li>
             <li>
-                <a href="https://wa.me/88008888888">
-                    <img src="images/wa.svg" alt="whatsapp">
-                    WhatsApp
+                <p>Комплектуем заказ, исходя
+                    ИЗ Уровня повреждений
+                    кузова ТС</p>
+                <a href=""><img src="images/tg.svg" alt=""></a>
+            </li>
+            <li>
+                <p>или закажите обратный звонок</p>
+                <a href="#form-1">
+                    <img src="images/tel-1.svg" alt="">
                 </a>
             </li>
-            <li>
-                <button class="connection-btn" id="form-2">
-                        <span>
-                            <img src="images/tel-1.svg" alt="tel">
-                        </span>
-                    Обратный звонок
-                </button>
-            </li>
         </ul>
-        <p class="connection-choose">Выберете удобный способ связи</p>
     </section>
 
     <section class="production" id="production">
-        <img src="images/production-1.png" alt="production">
         <p class="production-desc"><span>Ведущий производитель</span> кузовных
-            ремкомплектов с 2015 года.
-            <span>Собственное производство</span> 1200 кв м, высококлассное оборудование,
-            <span>быстрая доставка</span> по РФ</p>
+            ремкомплектов с 2015 года.</p>
+        <img src="images/production-1.png" alt="production">
+        <ul class="production-list">
+            <li>
+                <p><span>собственное производство</span> 1200 кв.м</p>
+            </li>
+            <li>
+                <p>высококлассное оборудование</p>
+            </li>
+            <li>
+                <p><span>быстрая доставка</span> по РФ</p>
+            </li>
+        </ul>
+
     </section>
 
+    <section class="examples">
+        <div class="car-comparison">
+            <div class="comparison-container">
+                <div class="car-half before"></div>
+                <div class="car-half after"></div>
+                <div class="divider" id="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-handle">↔</div>
+                </div>
+            </div>
+        </div>
+        <p class="examples-desc">Подвигай и посмотри как можно спасти ржавое авто</p>
+    </section>
     <section class="choose" id="choose">
-        <img class="choose-img" src="images/choose-1.png" alt="choose-back">
+<!--        <img class="choose-img" src="images/choose-1.png" alt="choose-back">-->
         <p class="choose-desc">Выберите из списка свой автомобиль
             и отправьте заявку </p>
         <div class="choose-wrapper">
@@ -170,12 +204,9 @@
         </div>
         <button class="choose-btn">Оставить заявку</button>
     </section>
-    <section class="examples" id="examples">
-        <img src="images/examples-1.png" alt="example">
-        <p class="examples-desc">Пример восстановления авто кузовными ремкомплектами</p>
-    </section>
+
     <section class="car" id="car">
-        <!--        <img src="images/car-2.png" alt="">-->
+        <img src="images/car-2.png" alt="">
         <img src="images/car-1.png" class="car-main" alt="">
         <div class="car-info">
             <img src="images/car-3.png" alt="">

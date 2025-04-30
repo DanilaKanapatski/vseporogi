@@ -26,10 +26,17 @@ class Countdown {
         const minutes = Math.floor((this.totalSeconds % (60 * 60)) / 60);
         const seconds = this.totalSeconds % 60;
 
-        this.daysEl.textContent = days.toString().padStart(2, '0');
-        this.hoursEl.textContent = hours.toString().padStart(2, '0');
-        this.minutesEl.textContent = minutes.toString().padStart(2, '0');
-        this.secondsEl.textContent = seconds.toString().padStart(2, '0');
+        this.updateDigits(this.daysEl, days);
+        this.updateDigits(this.hoursEl, hours);
+        this.updateDigits(this.minutesEl, minutes);
+        this.updateDigits(this.secondsEl, seconds);
+    }
+
+    updateDigits(element, value) {
+        const str = value.toString().padStart(2, '0');
+        const digits = element.querySelectorAll('.digit');
+        digits[0].textContent = str[0];
+        digits[1].textContent = str[1];
     }
 
     reset() {
