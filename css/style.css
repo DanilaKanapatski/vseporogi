@@ -169,6 +169,7 @@ body.menu-open {
 .main video {
   width: 100%;
   display: block;
+  max-width: 100%;
 }
 .main-title {
   position: absolute;
